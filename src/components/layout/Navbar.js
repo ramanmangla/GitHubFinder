@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export class Navbar extends Component {
+class Navbar extends Component {
   // Default properties
   static defaultProps = {
-    title: 'Github Finder',
+    title: 'GitHub Finder',
     icon: 'fab fa-github'
   };
 
