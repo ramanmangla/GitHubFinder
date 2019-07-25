@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './components/layout/Navbar';
+import Alert from './components/layout/Alert';
 import Users from './components/users/Users';
 import Search from './components/users/Search';
 // Promise based HTTP client Axios
@@ -11,7 +12,9 @@ class App extends Component {
     // GitHub users list
     users: [],
     // Loading screen
-    loading: false
+    loading: false,
+    // Alert object
+    alert: null
   };
 
   // A Lifecycle method
@@ -39,9 +42,18 @@ class App extends Component {
     this.setState({ users: res.data.items, loading: false });
   };
 
-  // Search GitHub users
+  // Clear users
   clearUsers = () => {
     this.setState({ users: [], loading: false });
+  };
+
+  // Set alert
+  setAlert = (message, type) => {
+    this.setState({ alert: { message: message, type: type } });
+
+    setTimeout(() => {
+      this.setState({ alert: null });
+    }, 5000);
   };
 
   // Required Lifecycle method
@@ -54,10 +66,12 @@ class App extends Component {
       <div className='App'>
         <Navbar />
         <div className='container'>
+          <Alert alert={this.state.alert} />
           <Search
             searchUsers={this.searchUsers}
             clearUsers={this.clearUsers}
             showClear={users.length > 0 ? true : false}
+            setAlert={this.setAlert}
           />
           <Users loading={loading} users={users} />
         </div>
