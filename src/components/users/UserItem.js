@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 // Functional component vs class component
 // Traditionally, classes had states and functions didn't
@@ -19,9 +20,9 @@ const UserItem = ({ user: { login, avatar_url, html_url } }) => {
       />
       <h3>{login}</h3>
       <div>
-        <a href={html_url} className='btn btn-dark btn-sm my1'>
+        <Link to={`/user/${login}`} className='btn btn-dark btn-sm my1'>
           More
-        </a>
+        </Link>
       </div>
     </div>
   );
