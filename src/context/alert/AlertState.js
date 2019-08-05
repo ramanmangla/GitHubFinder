@@ -1,6 +1,4 @@
 import React, { useReducer } from "react";
-// Promise based HTTP client Axios
-import axios from "axios";
 import AlertContext from "./alertContext";
 import AlertReducer from "./alertReducer";
 import { SET_ALERT, REMOVE_ALERT } from "../types";
