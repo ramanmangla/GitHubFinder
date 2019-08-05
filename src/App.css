@@ -2,7 +2,7 @@
 
 /* Global Styles */
 :root {
-  --primary-color: #dc3545;
+  --primary-color: #22a7f0;
   --dark-color: #333333;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
@@ -24,12 +24,13 @@ body {
 }
 
 a {
-  color: var(--primary-color);
+  color: #444;
   text-decoration: none;
+  transition: 0.5s ease;
 }
 
 a:hover {
-  color: #666;
+  color: var(--primary-color);
 }
 
 ul {

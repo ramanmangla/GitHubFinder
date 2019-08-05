@@ -1,9 +1,13 @@
-import React from 'react';
-import UserItem from './UserItem';
-import Spinner from '../layout/Spinner';
-import PropTypes from 'prop-types';
+import React, { useContext } from "react";
+import UserItem from "./UserItem";
+import Spinner from "../layout/Spinner";
+import GithubContext from "../../context/github/githubContext";
 
-const Users = ({ users, loading }) => {
+const Users = () => {
+  const githubContext = useContext(GithubContext);
+
+  const { loading, users } = githubContext;
+
   // Props can be used with this.props or destructered parameters
   if (loading) {
     return <Spinner />;
@@ -19,15 +23,10 @@ const Users = ({ users, loading }) => {
   );
 };
 
-Users.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  users: PropTypes.array.isRequired
-};
-
 const userStyle = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
-  gridGap: '1rem'
+  display: "grid",
+  gridTemplateColumns: "repeat(3, 1fr)",
+  gridGap: "1rem"
 };
 
 export default Users;
